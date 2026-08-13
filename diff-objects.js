@@ -17,10 +17,7 @@ if (typeof require !== 'undefined' && typeof _ === 'undefined') {
   const isNode = typeof process !== 'undefined' && process.versions && process.versions.node;
   /* eslint-enable no-undef */
   const diffObjects = init();
-  if (typeof angular !== 'undefined') {
-    /* global angular */
-    angular.module('diff-objects', []).constant('diffObjects', diffObjects);
-  } else if (isNode) {
+  if (isNode) {
     /* global module */
     module.exports = {diffObjects};
   } else if (isWebWorker) {
